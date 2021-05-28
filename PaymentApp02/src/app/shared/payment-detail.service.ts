@@ -24,13 +24,16 @@ export class PaymentDetailService {
 
   //HTTP POST
   postPaymentDetail() {
+    // alert('value of paymentDetailId: ' + this.pdFormData.paymentDetailId);
+    // if (this.pdFormData.paymentDetailId != 0)
+    //   this.pdFormData.paymentDetailId = 0;
     return this.http.post(this.baseURL, this.pdFormData);
   }
 
 
   // HTTP PUT
-  putPaymentDetail(selectedID: number) {
-    return this.http.put(`${this.baseURL}/${selectedID}`, this.pdFormData);
+  putPaymentDetail() {
+    return this.http.put(`${this.baseURL}/${this.pdFormData.paymentDetailId}`, this.pdFormData);
   }
 
   // HTTP DELETE
