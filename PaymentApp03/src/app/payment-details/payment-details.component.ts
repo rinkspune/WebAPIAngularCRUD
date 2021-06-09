@@ -6,7 +6,12 @@ import { PaymentDetailService } from '../shared/payment-detail.service';
 @Component({
   selector: 'app-payment-details',
   templateUrl: './payment-details.component.html',
-  styles: [
+  styles: [`
+    .my-custom-width {
+      height: 300px;
+      overflow: auto;
+      }
+  `
   ]
 })
 export class PaymentDetailsComponent implements OnInit {
@@ -62,7 +67,7 @@ export class PaymentDetailsComponent implements OnInit {
           this.service.refreshList();
           this.toast.success('Payment Detail has been removed successfully', 'Payment Detail Deletion');
           //this.service.formDataModelPD.paymentDetailId = 0;
-           this.service.formDataModelPD = new PaymentDetailModel();
+          this.service.formDataModelPD = new PaymentDetailModel();
 
         },
         err => {
