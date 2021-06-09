@@ -15,7 +15,7 @@ export class PaymentDetailService {
 
   // base url
   readonly baseURL = 'http://localhost:23495/api/paymentdetail';
-
+  apimessage: String = '';
   //list
   listPaymentDetail!: PaymentDetail[];
 
@@ -48,7 +48,18 @@ export class PaymentDetailService {
     this.http.get(this.baseURL)
       .toPromise()
       .then(
-        res => this.listPaymentDetail = res as PaymentDetail[]
+        res => this.listPaymentDetail = res as PaymentDetail[],
+        err => {
+          // this.apimessage = "paymentdetail:" + JSON.stringify(err);
+          // alert("paymentdetail");
+          this.apimessage = "paymentdetail: " + err.status;
+          this.apimessage += " ok: " + err.ok;
+          this.apimessage = " ok: " + err.ok;
+
+          console.log(err);
+          console.log(JSON.stringify(err));
+          //alert(JSON.stringify(err));
+        }
       );
   }
 
